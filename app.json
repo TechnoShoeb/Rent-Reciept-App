@@ -2,7 +2,7 @@
   "expo": {
     "name": "rent-receipt-app",
     "slug": "rent-receipt-app",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "rentreceiptapp",
@@ -11,12 +11,20 @@
       "icon": "./assets/expo.icon"
     },
     "android": {
+      "package": "com.shoeb.rentreceipt",
+      "versionCode": 2,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0a0a0a",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.CAMERA"
+      ],
       "predictiveBackGestureEnabled": false
     },
     "web": {
@@ -28,15 +36,30 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#0a0a0a",
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "imageWidth": 160
+        }
+      ],
+      "expo-sharing",
+      "expo-file-system",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to attach rent receipts and meter photos.",
+          "cameraPermission": "The app accesses your camera to take photos of meter readings and receipts."
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "ef934b83-d706-4ba0-bdf6-e477773694a5"
+      }
     }
   }
 }
